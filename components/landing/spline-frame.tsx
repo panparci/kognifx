@@ -4,12 +4,19 @@ import Spline from '@splinetool/react-spline';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 
+type InViewMarginValue = `${number}px` | `${number}%`;
+type InViewMargin =
+  | InViewMarginValue
+  | `${InViewMarginValue} ${InViewMarginValue}`
+  | `${InViewMarginValue} ${InViewMarginValue} ${InViewMarginValue}`
+  | `${InViewMarginValue} ${InViewMarginValue} ${InViewMarginValue} ${InViewMarginValue}`;
+
 interface SplineFrameProps {
   scene: string;
   lazy?: boolean;
   className?: string;
   inViewAmount?: number;
-  inViewMargin?: string;
+  inViewMargin?: InViewMargin;
 }
 
 export function SplineFrame({
